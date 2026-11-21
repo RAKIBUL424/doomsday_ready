@@ -5,7 +5,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
 from collections import defaultdict
 
-from app.db.models import Movie
+from app.db.models import Movie, movie_prerequisites
 from app.schema.movie_schema import MovieCreate, MovieUpdate, RewatchOrderOut
 from app.service.graph import rewatch_order, would_create_cycle
 
@@ -135,7 +135,6 @@ async def get_rewatch_order(movie_id: int, db: AsyncSession) -> RewatchOrderOut:
             detail={"code": "MOVIE_NOT_FOUND", "message": "Movie not found"},
         )
 
-    # shob prerequisite link ekbar e anlam
     rows = await db.execute(
         select(movie_prerequisites.c.movie_id, movie_prerequisites.c.prerequisite_id)
     )
@@ -149,7 +148,7 @@ async def get_rewatch_order(movie_id: int, db: AsyncSession) -> RewatchOrderOut:
     if ordered_ids:
         result = await db.scalars(select(Movie).where(Movie.id.in_(ordered_ids)))
         by_id = {m.id: m for m in result}
-        movies = [by_id[i] for i in ordered_ids]  # algorithm er order e rakho
+        movies = [by_id[i] for i in ordered_ids]
 
     return RewatchOrderOut(
         target=target.title,

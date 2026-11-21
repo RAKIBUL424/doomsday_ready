@@ -13,6 +13,7 @@ router = APIRouter(prefix="/api", tags=["movies"])
 async def create_movies(movie: MovieCreate, db: AsyncSession = Depends(get_db)):
     return await create_movie(movie, db)
 
+@router.get("/movies", response_model=list[MovieOut])
 @router.get("/movies/list", response_model=list[MovieOut])
 async def get_movies(db: AsyncSession = Depends(get_db)):
     return await list_movies(db)
