@@ -142,7 +142,7 @@ of AI and YouTube tutorials.
 **What AI wrote.** I write the first version of most of the code:
 the database models, Pydantic schemas, basic service layer, API routers,
 Alembic. Docker setup, the CSV seed script is written by AI chatboat, and the React frontend (I
-gave an AI agent a structured prompt I wrote with AI's help) is generated with the help of AI agent. I reviewed the code before using it and fixed issues I found. graph.py and booking.py is written with AI. All the exception handeling is used is added by AI.
+gave an AI agent a structured prompt I wrote with AI's help) is generated with the help of AI agent. I reviewed the code before using it and fixed issues I found. graph.py and booking.py is written with the help of AI.
 
 **Feature 1 and 2 logic.**
 - *AI wrote the first version of these algorithms. I traced them by hand with
