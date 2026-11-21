@@ -21,6 +21,9 @@ services:
       dockerfile: Dockerfile
     env_file:
       - ./backend/.env
+    volumes:
+      - ./backend:/app                # ← ADD THIS
+      - /app/.venv 
     depends_on:
       db:
         condition: service_healthy
