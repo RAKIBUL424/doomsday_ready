@@ -6,11 +6,6 @@ export default defineConfig({
   server: {
     port: 5173,
     proxy: {
-      '/api/cinemas': {
-        target: 'http://localhost:8000',
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api\/cinemas/, '/cinemas'),
-      },
       '/api': {
         target: 'http://localhost:8000',
         changeOrigin: true,

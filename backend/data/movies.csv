@@ -1,0 +1,9 @@
+title,release_year,runtime,watched,prerequisites
+Iron Man,2008,126,false,
+Captain America: The First Avenger,2011,124,false,
+The Avengers,2012,143,false,Iron Man|Captain America: The First Avenger
+Captain America: Civil War,2016,147,false,The Avengers
+Thor: Ragnarok,2017,130,false,
+Avengers: Infinity War,2018,149,false,Captain America: Civil War|Thor: Ragnarok
+Avengers: Endgame,2019,181,false,Avengers: Infinity War
+Avengers: Doomsday,2026,150,false,Avengers: Endgame

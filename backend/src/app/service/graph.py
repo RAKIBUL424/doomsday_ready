@@ -5,8 +5,9 @@ def would_create_cycle(
 ) -> bool:
     """
     graph[a] = [b, c] mane a dekhar age b ar c dekha lagbe.
-    New prerequisite gulo theke prerequisite-er pothe hete dekho,
-    movie_id e pouchaay kina. Pouchale loop.
+    New prerequisite gulo theke prerequisite-er pothe hete dekhthe hobe je target movie_id e pouchale cycle hobe kina. Pouchale loop.
+    Target movie_id e pouchale cycle hobe kina check kore. Pouchale loop.
+    Return: True jodi cycle thake, False jodi target movie_id e pouchale cycle na thake.
     """
     stack = list(new_prerequisite_ids)
     seen: set[int] = set()
@@ -41,14 +42,14 @@ def rewatch_order(target_id: int, graph: dict[int, list[int]]) -> list[int]:
         prereqs = graph.get(node, [])
 
         if i < len(prereqs):
-            # ei node e ekhono prerequisite baki, ager jaygay ferot ashar jonno rakho
+            # ei node e ekhono prerequisite baki, ager jaygay ferot ashar jonno rakhi
             stack.append((node, i + 1))
             nxt = prereqs[i]
             if nxt not in visited:
                 visited.add(nxt)
                 stack.append((nxt, 0))
         else:
-            # ei node er shob prerequisite shesh, ebar node ta add koro
+            # ei node er shob prerequisite shesh, ebar node ta add kori
             if node != target_id:
                 order.append(node)
 
